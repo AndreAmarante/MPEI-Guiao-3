@@ -14,9 +14,10 @@ for k=0:5
   Px(k+1)= c * Prob^k * (1-Prob)^(5-k);
 endfor
 
-%dificulades no uso do histograma, deixámos em stem
-stem(Px);
-xlabel('Nº peças defeituosas');
+%histograma
+bar(Px);
+title('Probabilidade PeÃ§as Defeituosas');
+xlabel('NÂº peÃ§as defeituosas');
 ylabel('P_X(x)');
 axis([0 5 0 0.4]);
 
@@ -47,7 +48,7 @@ Prob1defeito= combinacoes(5,1)* Prob^1*(1-Prob)^4;
 Prob2defeito= combinacoes(5,2)* Prob^2*(1-Prob)^3;
 Probf= Prob0defeito+Prob1defeito+Prob2defeito;
 
-%4.b) Simulação
+%4.b) SimulaÃ§Ã£o
 lancamentos = rand(5,N) < p;
 sucessos= sum(lancamentos)<=2;
 p = sum(sucessos)/N;
